@@ -1,0 +1,20 @@
+{
+  "name": "test-api",
+  "version": "1.0.0",
+  "description": "a simple nodejs server to server JSON data",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "nodemon index.js"
+  },
+  "author": "Lawal Olaotan",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
