@@ -9,7 +9,7 @@ const cn = classNames.bind(styles);
 export const Header = () => {
     return (
         <header className={cn('toolbar')}>
-            <img src={logo} className="logo-img"  alt="zonda logo"/>
+            <img src={logo} className={cn('logo-img')} alt="zonda logo"/>
         </header>
     );
 };

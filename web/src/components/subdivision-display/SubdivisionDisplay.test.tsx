@@ -1,12 +1,26 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { SubdivisionDisplay } from './SubdivisionDisplay';
+import { subDivisionsApiRoute } from '../../service';
+import { SubdivisionType } from '../../interface'
 
 
 describe('SubdivisionDisplay Component', () => {
-    it('renders learn prompt to create display component', () => {
-        render(<SubdivisionDisplay />);
-        const prompt = screen.getByText('Display subdivision data here');
-        expect(prompt).toBeInTheDocument();
+
+    let mockSubdivisions:SubdivisionType[];
+    const mockTableSorting = jest.fn();
+    const mockTableFilter = jest.fn();
+
+    beforeAll(async () => {
+        mockSubdivisions = await subDivisionsApiRoute();
     });
+
+    it('renders subdivisions', () => {
+        render(<SubdivisionDisplay tableFilter={mockTableFilter} tableSorting={mockTableSorting} subdivisions={mockSubdivisions} />);
+        mockSubdivisions.forEach(subdivision => {
+            const prompt = screen.getByText(expect.stringContaining(subdivision.name))
+            expect(prompt).toBeInTheDocument();
+        });
+    })
+        
 });

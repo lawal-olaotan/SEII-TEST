@@ -1,0 +1,13 @@
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.justify-box{
+    justify-content: space-between;
+}
+
+.margin-r{
+    margin-right:12px;
+}
